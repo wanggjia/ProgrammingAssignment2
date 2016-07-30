@@ -3,6 +3,9 @@
 
 ## Write a short comment describing this function
 
+## This function creates a special matrix object which can cache the inverse of x. 
+## The funciton returns a list which are the functions for get and set matrix and its inverse
+
 makeCacheMatrix <- function(x = matrix()) {
     invers <- matrix(nrow = dim(x)[1], ncol = dim(x)[2])
     matequal <- function(x, y){
@@ -21,10 +24,12 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function returns the inverse of the matrix
+## If the inverse exists and the matrix has not been changed, the cache will be returned
+## Otherwise, the inverse will be calculated, put to cache and returned. 
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
+        
         m <- x$getinverse()
         
         if (all(is.na(m))){
